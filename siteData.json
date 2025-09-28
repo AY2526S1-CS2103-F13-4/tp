@@ -3,13 +3,12 @@
   "pages": [
     {
       "src": "AboutUs.md",
-      "title": "About Us",
       "headings": {
         "about-us": "About Us",
         "project-team": "Project team",
-        "john-doe": "John Doe",
+        "jo-shin": "Jo Shin",
         "grace-song": "Grace Song",
-        "johnny-doe": "Johnny Doe",
+        "tan-wei-han": "Tan Wei Han",
         "mei-ting": "Mei Ting",
         "chen-yilin": "Chen Yilin"
       },
