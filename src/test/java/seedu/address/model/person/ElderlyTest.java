@@ -24,7 +24,8 @@ public class ElderlyTest {
                 new Email("tan@example.com"),
                 new Address("456 Kent Ridge Street"),
                 riskTags,
-                new Note("Needs wheelchair access")
+                new Note("Needs wheelchair access"),
+                new Remark("lives alone")
         );
 
         assertEquals("Mr Tan Kah Li Boon", elderly.getName().fullName);
@@ -44,7 +45,8 @@ public class ElderlyTest {
                 new Email("lee@example.com"),
                 new Address("789 Serangoon"),
                 riskTags,
-                new Note("Requires daily medication")
+                new Note("Requires daily medication"),
+                new Remark("Has a dog")
         );
 
         Set<Tag> retrievedTags = elderly.getRiskTags();
@@ -59,7 +61,8 @@ public class ElderlyTest {
                 new Email("john@example.com"),
                 new Address("No Address"),
                 null,
-                new Note("No note")
+                new Note("No note"),
+                new Remark("No remark")
         ));
     }
 }

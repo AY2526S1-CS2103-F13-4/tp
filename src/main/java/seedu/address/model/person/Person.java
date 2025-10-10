@@ -20,17 +20,19 @@ public class Person {
     // Data fields
     private final Address address;
     private final Note note;
+    private final Remark remark;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Note note) {
+    public Person(Name name, Phone phone, Email email, Address address, Note note, Remark remark) {
         requireAllNonNull(name, phone, email, address);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.note = note;
+        this.remark = remark;
     }
 
     public Name getName() {
@@ -52,6 +54,8 @@ public class Person {
     public Note getNote() {
         return note;
     }
+
+    public Remark getRemark() { return remark; }
 
     /**
      * Returns true if both persons have the same name.
@@ -86,13 +90,14 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && address.equals(otherPerson.address)
-                && note.equals(otherPerson.note);
+                && note.equals(otherPerson.note)
+                && remark.equals(otherPerson.remark);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, note);
+        return Objects.hash(name, phone, email, address, note, remark);
     }
 
     @Override
@@ -103,6 +108,7 @@ public class Person {
                 .add("email", email)
                 .add("address", address)
                 .add("note", note)
+                .add("remark", remark)
                 .toString();
     }
 

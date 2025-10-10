@@ -20,8 +20,8 @@ public class Elderly extends Person {
     /**
      * Every field must be present and not null.
      */
-    public Elderly(Name name, Phone phone, Email email, Address address, Set<Tag> riskTags, Note note) {
-        super(name, phone, email, address, note);
+    public Elderly(Name name, Phone phone, Email email, Address address, Set<Tag> riskTags, Note note, Remark remark) {
+        super(name, phone, email, address, note, remark);
         requireAllNonNull(riskTags);
         this.riskTags.addAll(riskTags);
     }

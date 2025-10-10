@@ -14,7 +14,8 @@ public class CaregiverTest {
                 new Phone("91234567"),
                 new Email("voonshuting@example.com"),
                 new Address("123 Toa Payoh Lorong 3"),
-                new Note("Loves to dance")
+                new Note("Loves to dance"),
+                new Remark("cannot eat spicy")
         );
 
         assertEquals("Voon Shu Ting", caregiver.getName().fullName);
@@ -31,7 +32,8 @@ public class CaregiverTest {
                 new Phone("91234567"),
                 new Email("voonshuting@example.com"),
                 new Address("123 Toa Payoh Lorong 3"),
-                new Note("Loves to dance")
+                new Note("Loves to dance"),
+                new Remark("cannot eat spicy")
         ));
     }
 }
