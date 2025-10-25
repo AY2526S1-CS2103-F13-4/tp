@@ -28,26 +28,41 @@ public class SeniorListPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(SeniorListPanel.class);
     private final Logic logic;
 
+    private final javafx.collections.ObservableList<seedu.address.model.person.Senior> backingList;
+    private final javafx.collections.ObservableList<Senior> pinnedHeaderItems =
+            javafx.collections.FXCollections.observableArrayList();
+
     @FXML
     private ListView<Senior> seniorListView;
+    @FXML
+    private ListView<Senior> pinnedHeaderList;
 
     /**
-     * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
+     * Creates a {@code SeniorListPanel} with the given {@code ObservableList}.
      */
     public SeniorListPanel(ObservableList<Senior> seniorList, ObservableList<Caregiver> caregiverList, Logic logic) {
         super(FXML);
         this.logic = logic;
 
-        SortedList<Senior> sorted = getSeniorsSorted(seniorList);
-        seniorListView.setItems(sorted);
+        // keep a reference to the original list
+        this.backingList = seniorList;
 
-        // keep your existing cell factory
-        seniorListView.setCellFactory(listView -> new SeniorListPanel.SeniorListViewCell(logic));
+        SortedList<Senior> sorted = getSeniorsSorted(seniorList);
+        var visibleList = new javafx.collections.transformation.FilteredList<>(backingList, s -> !isPinnedSenior(s));
+        seniorListView.setItems(visibleList);
 
         // Refresh all rows whenever the list reports a change (e.g., a Senior was edited)
         seniorList.addListener((ListChangeListener<Senior>) change -> seniorListView.refresh());
-        caregiverList.addListener((ListChangeListener<Caregiver>) change -> seniorListView.refresh());
         seniorListView.setCellFactory(listView -> new SeniorListViewCell(logic));
+
+        // header list: same cell factory so it looks identical
+        pinnedHeaderList.setItems(pinnedHeaderItems);
+        pinnedHeaderList.setCellFactory(listView -> new SeniorListViewCell(logic));
+        pinnedHeaderList.setFocusTraversable(false); // don’t steal keyboard focus
+
+        // refresh header now and whenever list mutates (pin/unpin changes replace items)
+        backingList.addListener((javafx.collections.ListChangeListener<? super Senior>) c -> refreshPinnedHeader());
+        refreshPinnedHeader();
     }
 
     private static SortedList<Senior> getSeniorsSorted(ObservableList<Senior> personList) {
@@ -73,6 +88,7 @@ public class SeniorListPanel extends UiPart<Region> {
      */
     private static class SeniorListViewCell extends ListCell<Senior> {
         private final Logic logic;
+
         SeniorListViewCell(Logic logic) {
             this.logic = logic;
         }
@@ -81,22 +97,35 @@ public class SeniorListPanel extends UiPart<Region> {
         protected void updateItem(Senior senior, boolean empty) {
             super.updateItem(senior, empty);
 
-            // always clear style first (cells are reused!)
-            getStyleClass().remove(PINNED_STYLE_CLASS);
-
             if (empty || senior == null) {
                 setGraphic(null);
                 setText(null);
-            } else {
-                setGraphic(new SeniorCard(senior, getIndex() + 1, logic).getRoot());
-                // tag the WHOLE CELL when pinned (affects entire card)
-                if (isPinned(senior)) {
-                    if (!getStyleClass().contains(PINNED_STYLE_CLASS)) {
-                        getStyleClass().add(PINNED_STYLE_CLASS);
-                    }
-                }
+                return;
             }
+
+            // Build the normal card
+            SeniorCard card = new SeniorCard(senior, getIndex() + 1, logic);
+            Region root = card.getRoot();  // UiPart<Region> root of the card
+
+            // Important: don't add styles to the ListCell itself anymore
+            setGraphic(root);
+            setText(null);
         }
+    }
+
+    private void refreshPinnedHeader() {
+        java.util.Optional<Senior> pinnedOpt =
+                backingList.stream().filter(this::isPinnedSenior).findFirst();
+
+        pinnedHeaderItems.setAll(pinnedOpt.map(java.util.List::of).orElse(java.util.List.of()));
+
+        boolean show = !pinnedHeaderItems.isEmpty();
+        pinnedHeaderList.setVisible(show);
+        pinnedHeaderList.setManaged(show);
+    }
+
+    private boolean isPinnedSenior(seedu.address.model.person.Senior s) {
+        return isPinned(s);
     }
 
 }
