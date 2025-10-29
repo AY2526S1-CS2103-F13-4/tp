@@ -118,6 +118,8 @@
         "listing-all-persons-list": "Listing all persons : list",
         "locating-persons-by-name-find": "Locating persons by name: find",
         "filtering-seniors-by-risk-tag-filter": "Filtering seniors by risk tag: filter",
+        "pin-a-senior-caregiver-by-their-index-pin": "Pin a senior/ caregiver by their index: pin",
+        "unpin-a-senior-caregiver-or-both-by-their-index-unpin": "Unpin a senior/ caregiver or both by their index: unpin",
         "deleting-a-person-delete": "Deleting a person : delete",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
