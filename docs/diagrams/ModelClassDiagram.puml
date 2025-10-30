@@ -68,4 +68,5 @@ Caregiver -up-|> Person
 
 ModelManager --> "~* filtered" Person
 
+note right of Senior : Only Seniors carry RiskTags {lr|mr|hr}; Caregivers have none.
 @enduml
