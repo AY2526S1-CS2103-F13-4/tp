@@ -127,7 +127,7 @@
         "locating-persons-by-name-find": "Locating persons by name: find",
         "filtering-seniors-by-risk-tag-filter": "Filtering seniors by risk tag: filter",
         "pin-a-person-by-their-index-pin": "Pin a person by their index: pin",
-        "unpin-a-person-s-by-their-index-unpin": "Unpin a person(s) by their index: unpin",
+        "unpin-a-person-s-unpin": "Unpin a person(s): unpin",
         "deleting-a-person-delete": "Deleting a person : delete",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
