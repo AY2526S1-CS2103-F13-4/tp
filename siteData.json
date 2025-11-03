@@ -71,7 +71,13 @@
         "filter-seniors-by-risk-tag": "Filter seniors by risk tag",
         "editing-a-person": "Editing a person",
         "deleting-a-person": "Deleting a person",
-        "saving-data": "Saving data"
+        "saving-data": "Saving data",
+        "appendix-effort": "Appendix: Effort",
+        "scope-and-difficulty": "Scope and difficulty",
+        "key-challenges": "Key challenges",
+        "effort-relative-to-ab3": "Effort relative to AB3",
+        "what-took-the-most-time": "What took the most time",
+        "appendix-planned-enhancements": "Appendix: Planned Enhancements"
       },
       "headingKeywords": {}
     },
