@@ -161,7 +161,7 @@ Examples:
 Unassign a caregiver from a senior in the system.
 Upon successful execution of the command, the system will refresh and display the full, unfiltered list.
 
-Format: `unassign s/SENIOR_INDEX c/CAREGIVER_INDEX` oR `unassign c/CAREGIVER_INDEX s/SENIOR_INDEX`
+Format: `unassign s/SENIOR_INDEX c/CAREGIVER_INDEX` OR `unassign c/CAREGIVER_INDEX s/SENIOR_INDEX`
 
 Examples:
 * `unassign s/3 c/1`
