@@ -310,7 +310,7 @@ Therefore, edit the data file only if you are confident that you can update it c
 
 </box>
 
-### Editing a person :
+### Editing a person : `edit`
 
 Edits information of a person.
 Upon successful execution of the command, the system will refresh and display the full, unfiltered list.
