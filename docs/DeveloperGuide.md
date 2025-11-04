@@ -397,7 +397,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | forgetful user     | set reminders for follow-ups or scheduled visits     | ensure no senior is unintentionally overlooked in our care efforts |     
 | `* `     | busy user          | view volunteer availability & match with seniors     | optimize resources and reduce scheduling conflicts                 |    
 
-_{More to be added}_
 
 ### Use cases
 
@@ -802,7 +801,6 @@ Example Commands
   such as`Low Risk`, `Medium Risk`, or `High Risk`.
   These tags help to prioritize follow-up actions and inform decision-making.
 - **Senior**: An elderly resident supported or engaged through AAC outreach activities.
-- **Status**: The current state of a contact or case, such as `active`, `inactive`, `referred`, or `closed`.
 - **Tag**: A keyword label assigned to a contact (e.g., `volunteer`, `caregiver`, `zone-west`) to enable filtering and
   grouping.
 - **Volunteer**: A person assigned to support or accompany seniors for check-ins, activities, or emergencies and
@@ -834,7 +832,7 @@ testers are expected to do more _exploratory_ testing.
 
     2. Launch the jar file by doing `cd` to the folder it is in.
 
-    3. Then use the `java -jar neighbourly.jar` command to run the application
+    3. Then use the `java -jar neighbourly.jar` command to run the application<br>
        Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 <box type="info" seamless>
@@ -1050,12 +1048,6 @@ testers are expected to do more _exploratory_ testing.
 3. Invalid/edge cases
     - `delete s/0` → Expected: “No such senior index exists.”
     - `delete`, `delete 1` → Expected: “Invalid command format!”
-
-### Saving data
-
-1. Dealing with missing/corrupted data files
-
-    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 ---
 
