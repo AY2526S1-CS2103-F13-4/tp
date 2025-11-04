@@ -316,16 +316,7 @@ Edits information of a person.
 Upon successful execution of the command, the system will refresh and display the full, unfiltered list.
 
 Format: `edit s/<SENIOR_INDEX> [n/NAME] [p/PHONE] [a/ADDRESS] [t/TAG] [nt/NOTE]...` or
-`edit c/<CAREGIVER_INDEX> [n/NAME] [p/PHONE] [a/ADDRESS] [nt/NOTE]...
-`
-
-* Edits the senior/caregiver based on the specified senior or caregiver index. 
-* The SENIOR_INDEX/CAREGIVER_INDEX refers to the index number shown in the displayed senior/caregiver list.
-* At least one of the optional fields must be provided.
-
-Examples: 
-* `edit s/1 n/John Tan p/91234567` Changes Senior with index SENIOR_INDEX 1 name to John Tan and phone to 91234567
-* `edit c/2 n/Jane Lim` Changes Caregiver with CAREGIVER_INDEX 2 name to Jane Lim
+`edit c/<CAREGIVER_INDEX> [n/NAME] [p/PHONE] [a/ADDRESS] [nt/NOTE]...`
 
 <box type="warning" seamless>
 
@@ -335,12 +326,13 @@ Examples:
 
 </box>
 
-<box type="warning" seamless>
+* Edits the senior/caregiver based on the specified senior or caregiver index. 
+* The SENIOR_INDEX/CAREGIVER_INDEX refers to the index number shown in the displayed senior/caregiver list.
+* At least one of the optional fields must be provided.
 
-**Current limitation & workaround**:<br>
-`a/ADDRESS` **cannot be empty** — `a/` is invalid. If you need to indicate “no address”, use a placeholder such as `a/NA`.
-
-</box>
+Examples: 
+* `edit s/1 n/John Tan p/91234567` Changes Senior with index SENIOR_INDEX 1 name to John Tan and phone to 91234567
+* `edit c/2 n/Jane Lim` Changes Caregiver with CAREGIVER_INDEX 2 name to Jane Lim
 
 --------------------------------------------------------------------------------------------------------------------
 
