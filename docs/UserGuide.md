@@ -220,7 +220,7 @@ Examples:
 
 ### Pin a person by their index: `pin`
 
-Pins maximum one senior and/ or one caregiver at the top of the respective panel display.
+Pins at most one senior and/ or one caregiver at the top of the respective panel display.
 Upon successful execution of the command, the system will refresh and display the full, unfiltered list.
 
 Format: `pin s/SENIOR_INDEX` or `pin c/CAREGIVER_INDEX`
@@ -249,7 +249,7 @@ Upon successful execution of the command, the system will refresh and display th
 Format: 
 `unpin [KEYWORD]` or `unpin`
 
-* Only the keywords 's', 'c', 'a', 'senior', 'caregiver', 'all' are allowed after unpin.
+* Only the keywords 's', 'c', 'a', 'senior', 'caregiver', 'sen', 'cg', 'all' are allowed after unpin.
 Inputs are not case-sensitive. 
 * Any other characters or strings following unpin will trigger an error. 
 * If no senior or caregiver is currently pinned, issuing any unpin command will result in an error.
@@ -352,18 +352,18 @@ Examples:
 
 ## Command summary
 
-| Action                 | Format, Examples                                                                                                                                                                           |
-|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add Senior**         | `add-snr n/NAME t/RISK_TAG p/PHONE a/ADDRESS [nt/NOTES] [c/CAREGIVER_INDEX]` <br> e.g., `add-snr n/Lim Ah Kow t/High Risk p/91234567 a/Blk 123 Bedok North Rd #02-45 n/Has dementia c/201` |
-| **Add Caregiver**      | `add-cgr n/NAME p/PHONE [a/ADDRESS] [nt/NOTES]` <br> e.g., `add-cgr n/Mei Hui p/98765432 a/Blk 620 Punggol Field Walk #08-23 nt/Has experience with dementia caregiving`                   |
-| **Assign Caregiver**   | `assign s/SENIOR_INDEX c/CAREGIVER_INDEX` or `assign c/CAREGIVER_INDEX s/SENIOR_INDEX` <br> e.g., `assign s/3 c/1`                                                                         |
-| **Unassign Caregiver** | `unassign s/SENIOR_INDEX c/CAREGIVER_INDEX` or `unassign c/CAREGIVER_INDEX s/SENIOR_INDEX` <br> e.g., `unassign s/3 c/1`                                                                   |
-| **Edit**               | `edit s/SENIOR_INDEX [n/NAME] [p/PHONE] [a/ADDRESS] [t/TAG] [nt/NOTE]` or `edit c/CAREGIVER_INDEX [n/NAME] [p/PHONE] [a/ADDRESS] [nt/NOTE]`<br> e.g., `edit c/2 n/Jane Lim`                |
-| **Filter**             | `filter t/TAG` <br> e.g., `filter t/hr` (shows all Seniors tagged `hr`; allowed tags: `lr`, `mr`, `hr`)                                                                                    |
-| **Pin**                | `pin s/SENIOR_INDEX` or `pin c/CAREGIVER_INDEX` <br> e.g., `pin s/1` or `pin c/1` (pins one senior or caregiver at the top of their list)                                                  |
-| **Unpin**              | `unpin s`, `unpin c`, or `unpin a` <br> e.g., `unpin s` (unpins senior), `unpin c` (unpins caregiver), `unpin` or `unpin a` (unpins all)                                                   |
-| **List**               | `list`                                                                                                                                                                                     |
-| **Find**               | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                 |
-| **Delete**             | `delete s/SENIOR_INDEX` or `delete c/CAREGIVER_INDEX` or `delete s/SENIOR_INDEX c/CAREGIVER_INDEX` <br> e.g., `delete s/3` or `delete c/3` or `delete s/3 c/3`                             |
-| **Clear**              | `clear`                                                                                                                                                                                    |
-| **Help**               | `help`                                                                                                                                                                                     |
+| Action                 | Format, Examples                                                                                                                                                                            |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add Senior**         | `add-snr n/NAME t/RISK_TAG p/PHONE a/ADDRESS [nt/NOTES] [c/CAREGIVER_INDEX]` <br> e.g., `add-snr n/Lim Ah Kow t/High Risk p/91234567 a/Blk 123 Bedok North Rd #02-45 nt/Has dementia c/201` |
+| **Add Caregiver**      | `add-cgr n/NAME p/PHONE [a/ADDRESS] [nt/NOTES]` <br> e.g., `add-cgr n/Mei Hui p/98765432 a/Blk 620 Punggol Field Walk #08-23 nt/Has experience with dementia caregiving`                    |
+| **Assign Caregiver**   | `assign s/SENIOR_INDEX c/CAREGIVER_INDEX` or `assign c/CAREGIVER_INDEX s/SENIOR_INDEX` <br> e.g., `assign s/3 c/1`                                                                          |
+| **Unassign Caregiver** | `unassign s/SENIOR_INDEX c/CAREGIVER_INDEX` or `unassign c/CAREGIVER_INDEX s/SENIOR_INDEX` <br> e.g., `unassign s/3 c/1`                                                                    |
+| **Edit**               | `edit s/SENIOR_INDEX [n/NAME] [p/PHONE] [a/ADDRESS] [t/TAG] [nt/NOTE]` or `edit c/CAREGIVER_INDEX [n/NAME] [p/PHONE] [a/ADDRESS] [nt/NOTE]`<br> e.g., `edit c/2 n/Jane Lim`                 |
+| **Filter**             | `filter t/TAG` <br> e.g., `filter t/hr` (shows all Seniors tagged `hr`; allowed tags: `lr`, `mr`, `hr`)                                                                                     |
+| **Pin**                | `pin s/SENIOR_INDEX` or `pin c/CAREGIVER_INDEX` <br> e.g., `pin s/1` or `pin c/1` (pins one senior or caregiver at the top of their list)                                                   |
+| **Unpin**              | `unpin s`, `unpin c`, or `unpin a` <br> e.g., `unpin s` (unpins senior), `unpin c` (unpins caregiver), `unpin` or `unpin a` (unpins all)                                                    |
+| **List**               | `list`                                                                                                                                                                                      |
+| **Find**               | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                  |
+| **Delete**             | `delete s/SENIOR_INDEX` or `delete c/CAREGIVER_INDEX` or `delete s/SENIOR_INDEX c/CAREGIVER_INDEX` <br> e.g., `delete s/3` or `delete c/3` or `delete s/3 c/3`                              |
+| **Clear**              | `clear`                                                                                                                                                                                     |
+| **Help**               | `help`                                                                                                                                                                                      |
