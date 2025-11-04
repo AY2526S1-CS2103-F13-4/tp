@@ -1,0 +1,24 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+Class "UniquePersonList<Senior>" as UniquePersonListSenior
+Class "UniquePersonList<Caregiver>" as UniquePersonListCaregiver
+
+AddressBook *-down-> "1" UniquePersonListCaregiver
+AddressBook *-down-> "1" UniquePersonListSenior
+
+UniquePersonListCaregiver -down-> Caregiver
+UniquePersonListSenior -down-> Senior
+
+Senior -up-|> Person
+Caregiver -up-|> Person
+Senior *--> "1" RiskTag
+
+Person *--> Name
+Person *--> Phone
+Person *--> Address
+Person *--> Note
+@enduml
