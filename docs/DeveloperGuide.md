@@ -316,12 +316,6 @@ The following activity diagram summarizes what happens when a user executes a ne
     - Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
     - Cons: We must ensure that the implementation of each individual command are correct.
 
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
 ---
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -1141,6 +1135,7 @@ v1.6**.
         - Policy: load all valid records, skip invalid ones, and show a clear summary (e.g., “Skipped 2 invalid records:
           seniorId must be ≥ 1; missing name. See logs for details.”).
 
+
 4. **Ensure pin stays on top during `find`/`filter`**
 
     - **Current behaviour (by design)**: When a find or filter is applied, each list view rebinds to a FilteredList of
@@ -1151,10 +1146,20 @@ v1.6**.
       filtered results), so pinned items are always visible.
     - **Benefits**: Faster access to favourites during searches.
 
+
 5. **Include generated index in `add` success messages**
+
     - **Problem**: After `add-cgr` / `add-snr`, the success message shows the person’s details but not the
       system-assigned index. Users must run find or scroll to discover the index before running index-based commands (
       `delete`, `edit`, `assign`, `unassign`).
     - **Change**: Append the newly generated index to the success message returned by the add commands.
     - **Why**: Removes an unnecessary lookup step, speeds up follow-up actions, and reduces user error.
     - **Scope / Impact**: Update message formatting only; storage format and ID generation remain unchanged.
+
+
+6. **Allow clearing optional fields for caregivers via `edit` (e.g., `a/` to remove address)**
+
+    - **Problem**: Caregiver address is optional at creation, but once set it cannot be cleared. Running `edit c/<ID> a/` is rejected because Address currently requires a non-empty value. This is inconsistent with the optional nature of the caregiver’s address and forces users to invent placeholders.
+    - **Change**: Support “clear” semantics for optional caregiver fields when their prefix is provided with an empty value.
+        - `edit c/<ID> a/` → remove caregiver’s address (set to “no address” / null).
+    - **Why**: Matches the data model (optional fields) and reduces friction when information becomes obsolete or sensitive.
