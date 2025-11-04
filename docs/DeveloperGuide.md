@@ -816,7 +816,7 @@ Example Commands
 
 ---
 
-## **Appendix: Instructions for manual testing**
+## **Appendix: Instructions for Manual Testing**
 
 Given below are instructions to test the app manually.
 
@@ -830,7 +830,6 @@ testers are expected to do more _exploratory_ testing.
 ### Launch and shutdown
 
 1. Initial launch
-
     1. Download the jar file and copy into an empty folder
 
     2. Launch the jar file by doing `cd` to the folder it is in.
