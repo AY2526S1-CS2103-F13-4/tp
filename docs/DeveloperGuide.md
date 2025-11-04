@@ -812,6 +812,7 @@ Example Commands
   tools.
 - **PDPA (Personal Data Protection Act)**: Singapore’s law governing the collection, use, and protection of personal
   data.
+- **Person**: A senior or caregiver.
 
 ---
 
@@ -830,14 +831,19 @@ testers are expected to do more _exploratory_ testing.
 
 1. Initial launch
     1. Download the jar file and copy into an empty folder
-    2. Double-click the jar file<br>
-       Expected: Shows the GUI with a set of sample contacts. The window size may not be
-       optimum.
 
-1. Saving window preferences
+    2. Launch the jar file by doing `cd` to the folder it is in.
+
+    3. Then use the `java -jar neighbourly.jar` command to run the application
+       Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+
+2. Saving window preferences
 
     1. Resize the window to an optimum size. Move the window to a different location. Close the window.
-    1. Re-launch the app by double-clicking the jar file.<br>
+
+    2. Re-launch the app by  doing `cd` to the folder neighbourly.jar is in.
+
+    3. Then use the `java -jar neighbourly.jar` command to run the application
        Expected: The most recent window size and location is retained.
 
 ### Adding a senior
