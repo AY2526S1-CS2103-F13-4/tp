@@ -837,6 +837,9 @@ testers are expected to do more _exploratory_ testing.
     3. Then use the `java -jar neighbourly.jar` command to run the application
        Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
+       {% note %}
+       **Note:** Double-clicking the `.jar` file may not work on all systems. Please use`java -jar neighbourly.jar`
+       {% endnote %}
 2. Saving window preferences
 
     1. Resize the window to an optimum size. Move the window to a different location. Close the window.
