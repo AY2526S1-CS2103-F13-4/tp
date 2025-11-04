@@ -285,8 +285,7 @@ Neighbourly data are saved automatically as a JSON file `[JAR file location]/dat
 <box type="warning" seamless>
 
 **Caution:**
-If your changes to the data file makes its format invalid, Neighbourly will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
-Furthermore, certain edits can cause the Neighbourly to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
+If the data file is **malformed** (invalid JSON) or contains **incompatible values** (e.g., negative IDs, missing required fields), Neighbourly may **fail to start or crash** on launch. Therefore, edit the data file only if you are confident that you can update it correctly.
 
 </box>
 
@@ -295,8 +294,14 @@ Furthermore, certain edits can cause the Neighbourly to behave in unexpected way
 Edits information of a person
 
 Format: `edit s/<SENIOR_INDEX> [n/NAME] [p/PHONE] [a/ADDRESS] [t/TAG] [nt/NOTE]...` or
-`edit c/<CAREGIVER_INDEX> [n/NAME] [p/PHONE] [a/ADDRESS] [nt/NOTE]...
-`
+`edit c/<CAREGIVER_INDEX> [n/NAME] [p/PHONE] [a/ADDRESS] [nt/NOTE]...`
+
+* Edits the senior/caregiver based on the specified seniorId or caregiverId.
+* The SENIOR_INDEX/CAREGIVER_INDEX refers to the index number shown in the displayed senior/caregiver list.
+
+Examples: 
+* `edit s/1 n/John Tan p/91234567` Changes Senior with index SENIOR_INDEX 1 name to John Tan and phone to 91234567
+* `edit c/2 n/Jane Lim` Changes Caregiver with CAREGIVER_INDEX 2 name to Jane Lim
 
 <box type="warning" seamless>
 
@@ -306,12 +311,13 @@ Format: `edit s/<SENIOR_INDEX> [n/NAME] [p/PHONE] [a/ADDRESS] [t/TAG] [nt/NOTE].
 
 </box>
 
-* Edits the senior/caregiver based on the specified seniorId or caregiverId.
-* The SENIOR_INDEX/CAREGIVER_INDEX refers to the index number shown in the displayed senior/caregiver list.
+<box type="warning" seamless>
 
-Examples: 
-* `edit s/1 n/John Tan p/91234567` Changes Senior with index SENIOR_INDEX 1 name to John Tan and phone to 91234567
-* `edit c/2 n/Jane Lim` Changes Caregiver with CAREGIVER_INDEX 2 name to Jane Lim
+**Current limitation & workaround**
+
+* `a/ADDRESS` **cannot be empty** — `a/` is invalid. If you need to indicate “no address”, use a placeholder such as `a/NA`.
+
+</box>
 
 [//]: # (Edits an existing person in the address book.)
 
