@@ -834,7 +834,7 @@ testers are expected to do more _exploratory_ testing.
 
     2. Launch the jar file by doing `cd` to the folder it is in.
 
-    3. Then use the `java -jar neighbourly.jar` command to run the application<br>
+    3. Then use the `java -jar neighbourly.jar` command to run the application
        Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
        {% note %}
