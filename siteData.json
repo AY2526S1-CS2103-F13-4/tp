@@ -38,6 +38,7 @@
     },
     {
       "src": "DeveloperGuide.md",
+      "title": "Developer Guide",
       "headings": {
         "neighbourly-developer-guide": "Neighbourly Developer Guide",
         "acknowledgements": "Acknowledgements",
